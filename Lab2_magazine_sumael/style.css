@@ -1,0 +1,451 @@
+/* ===========================
+   Google Fonts
+   =========================== */
+/* Import custom fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap');
+
+
+/* ===========================
+   2.1 - Base & Page Structure
+   =========================== */
+
+/* Reset all default margins, padding, and set box-sizing */
+* {
+  margin: 0; /* Remove outside spacing */
+  padding: 0; /* Remove inside spacing */
+  box-sizing: border-box; /* Include padding + border inside width/height */
+}
+
+/* Body defaults */
+body {
+  font-family: 'Roboto', sans-serif; /* Main font */
+  line-height: 1.6; /* Line spacing for readability */
+  color: #070707; /* Text color (dark gray) */
+}
+
+/* Headings (h1, h2, h3) */
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif; /* Use stylish font */
+  letter-spacing: 1px; /* Space between letters */
+  text-transform: uppercase; /* Make all caps */
+  color: #00aaff;
+}
+
+/* Main title (h1) */
+h1 {
+  font-size: 2.5rem; /* Large size */
+}
+
+/* Paragraphs */
+p {
+  font-size: 1rem; /* Standard readable text size */
+  color: #000000;
+}
+
+/* Links */
+a {
+  text-decoration: none; /* Remove underline */
+  color: blue; /* Set link color */
+}
+
+/* Header */
+#site-header {
+  background-color: rgb(144, 216, 229); /* Light blue background */
+  border-bottom: 1px solid #1e5181; /* Dark blue bottom border */
+  padding: 2rem; /* Space inside header */
+}
+
+/* Footer */
+#site-footer {
+  background-color: #d1cbcb; /* Dark background */
+  color: #000000; /* White text */
+  text-align: center; /* Center align text */
+  padding: 1.5rem; /* Inside spacing */
+  margin-top: 2rem; /* Space above footer */
+}
+
+/* Logo image */
+.logo {
+  max-width: 90px; /* Limit max size */
+  height: auto; /* Keep aspect ratio */
+  border-radius: 50%; /* Make round */
+  object-fit: cover; /* Fill container nicely */
+  margin: 1rem auto; /* Center horizontally */
+  display: block; /* Force block element */
+}
+
+
+/* ===========================
+   2.2 - Colors, Backgrounds, Layout
+   =========================== */
+
+/* Hero section */
+/* Hero section background */
+.hero {
+  background-image: url("images/hero.jpg"); /* Add a background image to hero */
+  background-size: cover; /* Make sure image covers the entire hero */
+  background-position: center; /* Keep the focal point centered */
+  position: relative; /* Required so overlay (::before) positions correctly */
+  color: white; /* Ensure text is visible */
+  text-align: center; /* Center text horizontally */
+  padding: 5rem 2rem; /* Add generous spacing inside */
+}
+
+/* Hero background overlay (::before) */
+.hero::before {
+  content: ""; /* Empty pseudo-element used as overlay */
+  position: absolute; /* Position overlay over the hero section */
+  top: 0; left: 0; /* Start from top-left corner */
+  width: 100%; height: 100%; /* Cover entire hero section */
+  background: rgba(0,0,0,0.4); /* Semi-transparent black for readability */
+  z-index: 0; /* Place behind the text */
+}
+
+/* Hero text stays above overlay */
+.hero h1, .hero p {
+  position: relative; /* Keep text positioned above overlay */
+  z-index: 1; /* Layer above overlay */
+}
+
+/* Navigation container */
+header nav {
+  background-color: #1e5181; /* Solid dark blue */
+  padding: 0.5rem 1rem; /* Space inside nav */
+}
+
+/* Navigation menu list */
+nav ul {
+  display: flex; /* Horizontal items */
+  justify-content: center; /* Center them */
+  list-style: none; /* Remove bullets */
+}
+
+/* Each nav item */
+nav ul li {
+  margin: 0 1rem; /* Space between items */
+}
+
+/* Navigation links */
+nav ul li a {
+  color: white; /* White text */
+  font-weight: bold; /* Bold text */
+  padding: 0.75rem 1.25rem; /* Spacing inside */
+  transition: 0.3s ease; /* Smooth hover */
+}
+
+/* Hover state for nav links */
+nav ul li a:hover {
+  background-color: #050c88; /* Light blue background */
+  border-radius: 5px; /* Rounded edges */
+}
+
+
+/* ===========================
+   2.3 - Typography & Text Effects
+   =========================== */
+
+/* Hero title */
+.hero h1 {
+  font-size: 3rem; /* Big size */
+  text-transform: uppercase; /* All caps */
+  letter-spacing: 2px; /* Spaced letters */
+  margin-bottom: 1rem; /* Space under heading */
+}
+
+/* Intro paragraph */
+.intro {
+  font-style: italic; /* Italic style */
+  line-height: 1.8; /* Looser line spacing */
+  font-size: 1.2rem; /* Slightly larger text */
+}
+
+/* Add star before article titles */
+.article-card h3::before {
+  content: "★ "; /* Star symbol */
+  color: gold; /* Gold star */
+}
+
+/* Article title */
+.article-card h3 {
+  transition: color 0.3s ease; /* Smooth color change */
+}
+
+/* On hover, article title color changes */
+.article-card:hover h3 {
+  color: #a9d11a; /* Blue on hover */
+}
+
+/* ===========================
+   2.5 - Images & Media
+   =========================== */
+
+/* Article images */
+.article-card img {
+  max-width: 100%; /* Ensures image scales responsively with its container */
+  height: auto; /* Keeps the correct aspect ratio */
+  border-radius: 10px; /* Gives images rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth zoom animation on hover */
+}
+
+/* Hover zoom effect for article images */
+.article-card img:hover {
+  transform: scale(1.05); /* Slight zoom-in when hovering */
+}
+
+/* Newsletter heading */
+.newsletter h2 {
+  position: relative; /* Needed for ::after underline */
+  display: inline-block; /* Keep underline under text only */
+  margin-bottom: 1.5rem; /* Space below heading */
+}
+
+/* Decorative underline */
+.newsletter h2::after {
+  content: ""; /* Empty element */
+  position: absolute; /* Positioned relative to h2 */
+  bottom: -5px; /* Just below text */
+  left: 0; /* Start at left */
+  width: 100%; /* Full width */
+  height: 3px; /* Thickness */
+  background-color: #000000; /* Blue line */
+}
+
+
+/* ===========================
+   2.4 - Homepage Styling
+   =========================== */
+
+/* Article container */
+.articles {
+  display: flex; /* Horizontal flex layout */
+  flex-wrap: wrap; /* Wrap items to new row */
+  justify-content: center; /* Center items */
+  gap: 2rem; /* Space between items */
+  padding: 2rem; /* Inner spacing */
+}
+
+/* Article card */
+.article-card {
+  flex: 1 1 calc(33.333% - 2rem); /* 3 columns layout */
+  min-width: 280px; /* Don’t shrink too small */
+  background-color: #fff; /* White background */
+  padding: 1.5rem; /* Inside spacing */
+  border: 1px solid #eee; /* Light border */
+  border-radius: 10px; /* Rounded corners */
+  transition: transform 0.3s ease; /* Hover effect */
+  margin-bottom: 2rem; /* Space below each */
+}
+
+/* Hover lift effect */
+.article-card:hover {
+  transform: translateY(-5px); /* Lift upward */
+}
+
+/* Newsletter section */
+.newsletter {
+  background-color: #05181d; /* Light background */
+  padding: 2rem; /* Inside spacing */
+  text-align: center; /* Center content */
+  margin-top: 3rem; /* Space above */
+}
+
+/* Newsletter form */
+.newsletter form {
+  display: flex; /* Align items in row */
+  justify-content: center; /* Center items */
+  gap: 1rem; /* Space between */
+  flex-wrap: wrap; /* Wrap on small screens */
+}
+
+/* Email input */
+input[type="email"] {
+  border: 1px solid #ccc; /* Light gray border */
+  padding: 0.5rem; /* Inside spacing */
+  border-radius: 5px; /* Rounded corners */
+  width: 100%; /* Full width */
+  max-width: 300px; /* But not too wide */
+}
+
+/* Newsletter button */
+.newsletter button {
+  background-color: #0066cc; /* Blue background */
+  color: #fff; /* White text */
+  border: none; /* Remove border */
+  padding: 0.75rem 1.5rem; /* Size */
+  border-radius: 5px; /* Rounded */
+  cursor: pointer; /* Hand icon */
+  transition: background 0.3s ease; /* Smooth hover */
+}
+
+/* Hover effect for button */
+.newsletter button:hover {
+  background-color: #004a99; /* Darker blue */
+}
+
+
+/* ===========================
+   2.5 - Images & Media
+   =========================== */
+
+/* Article images */
+.article-card img {
+  max-width: 100%; /* Responsive */
+  height: auto; /* Keep ratio */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Subtle shadow */
+  transition: transform 0.3s ease; /* Smooth zoom */
+}
+
+/* Hover zoom effect */
+.article-card img:hover {
+  transform: scale(1.05); /* Slight zoom */
+}
+
+/* Hero background overlay (::before) */
+.hero::before {
+  content: ""; /* Empty overlay */
+  position: absolute; /* Cover entire hero */
+  top: 0; left: 0; /* Start at top-left */
+  width: 100%; height: 100%; /* Full size */
+  background: rgba(189, 171, 171, 0.4); /* Transparent black */
+}
+
+/* Hero text stays above overlay */
+.hero h1, .hero p {
+  position: relative; /* Keep above overlay */
+  z-index: 1; /* On top */
+}
+
+
+/* ===========================
+   2.6 - Multi-Page (Articles Page)
+   =========================== */
+
+/* Article item row */
+.article-item {
+  display: flex; /* Image + text side by side */
+  align-items: flex-start; /* Align at top */
+  gap: 1.5rem; /* Space between */
+  padding: 1rem 0; /* Vertical spacing */
+  border-bottom: 1px solid #ddd; /* Separator line */
+}
+
+/* Article item image */
+.article-item img {
+  max-width: 200px; /* Limit width */
+  height: auto; /* Keep ratio */
+  border-radius: 8px; /* Rounded edges */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Shadow */
+  transition: transform 0.3s ease; /* Smooth zoom */
+}
+
+/* Hover zoom */
+.article-item img:hover {
+  transform: scale(1.05); /* Slight zoom */
+}
+
+/* Article content beside image */
+.article-content {
+  flex: 1; /* Fill remaining space */
+}
+
+/* ===========================
+   Contact Design
+   =========================== */
+.contact {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #333;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #222;
+    text-align: center;
+}
+
+.contact p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #444;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.contact li:hover {
+    background: #f3f3f3;
+}
+
+.contact li::before {
+    content: "•";
+    color: #007BFF; /* Accent color */
+    font-weight: bold;
+    display: inline-block;
+    width: 20px;
+    margin-right: 10px;
+}
+
+
+
+
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+/* For tablets & smaller screens */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center align */
+  }
+
+  nav ul li {
+    margin: 0.5rem 0; /* Vertical spacing */
+  }
+
+  .article-card {
+    flex: 1 1 100%; /* Full width */
+  }
+
+  .article-item {
+    flex-direction: column; /* Stack image + text */
+    text-align: center; /* Center text */
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* Smaller heading */
+  }
+
+  .hero p {
+    font-size: 1rem; /* Smaller paragraph */
+  }
+
+  .logo {
+    max-width: 120px; /* Larger logo on small screens */
+  }
+}
